@@ -1,38 +1,34 @@
-Late Delivery Risk Prediction
+# Late Delivery Risk Prediction
 
-This project applies machine learning to predict whether an order will be delivered late based on order, shipping, regional, and product category features. The goal is to identify high-risk deliveries early and uncover supply chain factors contributing to delays.
+A machine learning project that predicts whether an order will be delivered late, 
+achieving **ROC-AUC of 0.74** on 180,000+ logistics records.
 
-Project Overview
-Late deliveries impact customer satisfaction and operational efficiency. In this project, a Random Forest classification model is built to estimate late delivery risk and analyze patterns across different product categories, shipping modes, and regions.
+## Problem
+Late deliveries hurt customer satisfaction and operational efficiency. 
+This project identifies high-risk deliveries before they happen, giving 
+supply chain teams actionable intelligence to intervene early.
 
-Dataset
-The dataset from Kaggle contains historical order and shipping information, including:
-- Order type  
-- Shipping mode  
-- Order region  
-- Scheduled shipment days  
-- Product category  
-- Late delivery risk (target variable)
+## Results
+- ROC-AUC: 0.74
+- High precision in identifying high-risk orders
+- Key finding: shipping mode and order region are the strongest predictors 
+  of late delivery, not product category
 
-Methodology
-1. Performed exploratory data analysis (EDA) to identify high-risk categories and delivery patterns.  
-2. Selected relevant features based on EDA insights.  
-3. Applied one-hot encoding to categorical variables.  
-4. Split the data into training and testing sets (80/20).  
-5. Trained a Random Forest classifier with controlled depth to reduce overfitting.  
-6. Evaluated the model using accuracy, precision, recall, F1-score, and a confusion matrix.
+## Dataset
+180,000+ historical orders from Kaggle, including order type, shipping mode, 
+region, scheduled shipment days, and product category.
 
-Results
-- Achieved approximately 69% accuracy on unseen test data.  
-- High precision in predicting late deliveries, indicating reliable identification of high-risk orders.    
+## Methodology
+1. Exploratory data analysis to identify high-risk patterns across categories and regions
+2. Feature engineering and one-hot encoding of categorical variables
+3. Class imbalance handling
+4. Random Forest classifier (depth-controlled to reduce overfitting)
+5. Evaluation via ROC-AUC, precision-recall, F1-score, and confusion matrix
 
-Key Insights
-- Certain product categories consistently show higher late delivery risk.  
-- Shipping mode and region play a significant role in delivery performance.  
-- Delivery delays are largely driven by supply chain and logistics constraints rather than random variation.
+## Key Insights
+- Certain product categories consistently show higher late delivery risk
+- Shipping mode and region drive delays more than product type
+- Delivery risk is largely systematic, not random — making it predictable
 
-Technologies Used
-- Python  
-- pandas, NumPy  
-- scikit-learn  
-- matplotlib  
+## Tech Stack
+Python · pandas · NumPy · scikit-learn · matplotlib
